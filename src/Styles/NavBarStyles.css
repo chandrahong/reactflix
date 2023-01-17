@@ -4,6 +4,7 @@ nav{
     justify-content: space-between;
     background-color: #001219;
     align-items:center;
+    position: sticky;
 }
 
 nav h1{

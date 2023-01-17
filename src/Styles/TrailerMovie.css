@@ -8,21 +8,9 @@
     position:absolute;
     z-index: 100;
 }
-#TrailerMovie-name-dark{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    position: absolute;
-    top: -100px;
-    font-size: 2.5rem;
-    color: #EE9B00;
-}
-#TrailerMovie-name-light{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    position: absolute;
-    top: -100px;
-    font-size: 2.5rem;
-    color: #ff206e;
+
+#youtubeplayer{
+    position: fixed;
+    right : 20%;
+    bottom : 5%;
 }

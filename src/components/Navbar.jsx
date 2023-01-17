@@ -3,9 +3,10 @@ import {HiSearch} from 'react-icons/hi'
 import { Routes , Route, NavLink} from 'react-router-dom'
 import Movies from './Movies'
 import TvShows from './TvShows'
-import Pricing from './Pricing'
 import Trending from './Trends'
+import MovieInfo from './MovieInfo'
 import '../Styles/NavBarStyles.css'
+
 
 export const Container = React.createContext()
 
@@ -16,6 +17,7 @@ function Navbar() {
   return (
     <Container.Provider value={{toogle, inputValue}}>
     <Fragment>
+        <div id="navheader">
         <nav className={toogle?'' : 'navBarColor'}>
 
             <div className="nav-options">
@@ -34,9 +36,6 @@ function Navbar() {
                 <span id={toogle? 'Movies': 'MoviesLight'}>Trending</span>
                 </NavLink>
 
-                <NavLink to="./Pricing" style={({isActive}) => {return {color:isActive? "#fff" : "#EE9B00"}}}>
-                <span id={toogle? 'Movies': 'MoviesLight'}>Pricing</span>
-                </NavLink>
 
             </div>
             
@@ -50,14 +49,13 @@ function Navbar() {
                 </div>
              </div>
         </nav>
+        </div>
 
 
         <Routes>
             <Route path='' element={<Movies />} />
             <Route path='TvShows' element={<TvShows />}/>
             <Route path='Trending' element={<Trending />}/>
-            <Route path='Pricing' element={<Pricing />}/>
-
         </Routes>
     </Fragment>
     </Container.Provider>

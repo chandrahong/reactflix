@@ -4,16 +4,20 @@ import { AiFillPlayCircle, AiOutlineClose } from 'react-icons/ai'
 import NoImg from './noimage.jpg'
 import "../Styles/Videos.css"
 import { Container } from './Navbar'
+import TrailerMovies from '../Trailers/TrailerMovies'
 
 function TvShows() {
   const {toogle, inputValue} = useContext(Container)
   const input = inputValue;
   const [trailer, setTrailer] = useState(true);
   const [title, setTitle] = useState('')
+  const [tvId, setTvId] = useState('')
+  const [tvGenre, setTvGenre] = useState('')
   const [showData, setShowData] = useState([])
   const Shown = input ? 'search' : 'discover'
   const Api = `https://api.themoviedb.org/3/${Shown}/tv`
   const Images = "https://image.tmdb.org/t/p/w500"
+  const genre = "tv"
 
   const TvShows = async () =>{
     const data = await axios.get(Api, {
@@ -36,8 +40,11 @@ function TvShows() {
 
   const TvShowTitle = (shows) =>{
     setTitle(shows.name)
+    setTvId(shows.id)
+    setTvGenre(genre)
     setTrailer(!trailer)
   }
+
   return (
     <Fragment>
       <div className={toogle ? "mainBgColor" : "secondaryBgColor"}>
@@ -53,6 +60,8 @@ function TvShows() {
           </Fragment>
           )
         })}
+        
+        {trailer ? console.log : <TrailerMovies genre={tvGenre} moviesId={tvId} />}
         <AiOutlineClose id={trailer ? 'Nothing' : 'Exit1'} className={toogle ? 'DarkTheme': 'LightThemeClose'} fontSize = {55} color="#fff" cursor={'pointer'} onClick={()=> setTrailer(true)} />
         </div>
       </div>

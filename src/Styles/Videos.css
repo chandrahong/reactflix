@@ -9,7 +9,7 @@ body{
 }
 
 .mainBgColor{
-    background-color: #1c1d01;
+    background-color: #181803;
     width: 100%;
 }
 
@@ -19,10 +19,11 @@ body{
 }
 
 .movies-container img{
+    object-fit: cover;
     width: 350px;
     height: 550px;
     margin: 25px 0px 4px 15px;
-    border-radius: 18px;
+    border-radius: 20px;
 }
 
 .movies-container h3, .movies-container img{
@@ -32,6 +33,7 @@ body{
 
 .movies-container img:hover{
     transform: scale(1.05);
+
 }
 
 .mainColor{
@@ -60,12 +62,33 @@ body{
 
 #playIcon{
     position: absolute;
-    bottom: 70px;
+    bottom: 60px;
     left:20px;
     visibility: visible;
     z-index: 100;
     cursor: pointer;
+    transition : transform 450ms;
 }
+
+#playIcon:hover{
+    transform: scale(1.30)
+    
+}
+
+#infoIcon{
+    position: absolute;
+    bottom: 60px;
+    left:60px;
+    visibility: visible;
+    z-index: 100;
+    cursor: pointer;
+    transition : transform 450ms;
+}
+
+#infoIcon:hover{
+    transform: scale(1.30)
+}
+
 
 #smaller-Text{
     display: flex;
@@ -89,10 +112,12 @@ body{
 }
 
 #Exit1{
-    position: absolute;
-    margin-left: 475px;
-    margin-top: 67px;
+    cursor:pointer;
+    position: fixed;
+    margin-left: 1200px;
+    margin-top: 10px;
     z-index: 999;
+
 }
 
 #Nothing{
