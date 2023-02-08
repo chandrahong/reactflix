@@ -1,16 +1,65 @@
 .player{
-    position: absolute;
-    margin-top: 120px;
-    z-index:999;
+    top: 0;
+    width:100%;
+    height: 500px;
+    z-index:2;
 }
-.Container{
-    display: none;
-    position:absolute;
-    z-index: 100;
+
+.modalBackground{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color: dark;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.modalContainer{
+    margin-top: 45px;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    z-index: 1000;
+    height: 700px;
+    width: 1150px;
+    background-color: rgb(29, 28, 28);
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
+    flex-direction: column;
+    column-gap: 20px;
+    position: absolute; 
 }
 
 #youtubeplayer{
-    position: fixed;
-    right : 20%;
-    bottom : 5%;
+    position: absolute;
+    border-radius: 20px;
+    top: 0;
+    height: 500px;
+    width: 100%;
+}
+
+.movie-info{
+    display:flex;
+    flex-direction: row;
+    height:200px;
+    width: 1140px;
+    margin-left: 10px;
+    
+}
+
+.title{
+    width: 740px;
+}
+
+.cast{
+    width: 400px;
+    text-align: right;
+    margin-right: 30px;
+
 }

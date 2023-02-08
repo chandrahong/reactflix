@@ -1,4 +1,4 @@
-import React, {Fragment, useState } from 'react'
+import React, {Fragment, useState , useContext} from 'react'
 import {HiSearch} from 'react-icons/hi'
 import { Routes , Route, NavLink} from 'react-router-dom'
 import Movies from './Movies'
@@ -56,6 +56,7 @@ function Navbar() {
             <Route path='' element={<Movies />} />
             <Route path='TvShows' element={<TvShows />}/>
             <Route path='Trending' element={<Trending />}/>
+            <Route path='MovieInfo' element={<MovieInfo />}/>
         </Routes>
     </Fragment>
     </Container.Provider>

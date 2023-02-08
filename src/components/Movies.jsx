@@ -2,18 +2,18 @@ import axios from 'axios'
 import React, { Fragment, useContext, useEffect, useState } from 'react'
 import {AiFillPlayCircle, AiOutlineClose, AiFillInfoCircle } from "react-icons/ai"
 import {Container} from "./Navbar"
-import { Routes , Route, Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import NoImg from "./noimage.jpg"
 import '../Styles/Videos.css'
 import TrailerMovies from '../Trailers/TrailerMovies'
-import MovieInfo from './MovieInfo'
 
+export const MovieIdContainer = React.createContext()
 
-function Movies() {
+const Movies = () => {
+
   const {toogle, inputValue} = useContext(Container);
   const input = inputValue;
   const [moviesData,  setMoviesData] = useState([])
-  const [movieTitle, setMovieTitle] = useState('')
   const [movieId, setMovieId] = useState('')
   const [trailer, setTrailer] = useState(true);
   const [movieGenre, setMovieGenre] = useState('')
@@ -44,13 +44,20 @@ function Movies() {
   console.log(moviesData);
   
   const MoviesTitle = (movie) => {
-    setMovieTitle(movie.title)
     setMovieId(movie.id)
     setMovieGenre(genre)
     setTrailer(!trailer)
+    document.body.style.overflow = 'hidden';
   }
+
+  function closeModal(){
+    setTrailer(true)
+    document.body.style.overflow = 'unset';
+  }
+
   return (
-    <><Fragment>
+    <MovieIdContainer.Provider value={{movieGenre,movieId}}>
+      <Fragment>
       <div className={toogle ? "mainBgColor" : "secondaryBgColor"}>
         <div className="movies-container">
           {moviesData.map((movie) => {
@@ -58,8 +65,8 @@ function Movies() {
               <Fragment key={movie.id}>
                 <div id={trailer ? "container" : "NoContainer"}>
                   <AiFillPlayCircle color="white" fontSize={40} id={trailer ? "playIcon" : "hide"} onClick={() => MoviesTitle(movie)} />
-                  <Link to="/MovieInfo">
-                    <AiFillInfoCircle color="white" fontSize={40} id={trailer ? "infoIcon" : "hide"}  />
+                  <Link to="/MovieInfo" relative="path">
+                   
                   </Link>
                   
                   <img src={movie.poster_path ? `${Images}${movie.poster_path}` : NoImg} alt="" onClick={() => MoviesTitle(movie)} />
@@ -69,15 +76,12 @@ function Movies() {
             )
           })}
           {trailer ? console.log : <TrailerMovies genre={movieGenre} moviesId={movieId} />}
-          <AiOutlineClose id={trailer ? 'Nothing' : 'Exit1'} className={toogle ? 'DarkTheme' : 'LightThemeClose'} fontSize={55} color="#fff" cursor={'pointer'} onClick={() => setTrailer(true)} />
+          <AiOutlineClose id={trailer ? 'Nothing' : 'Exit1'} className={toogle ? 'DarkTheme' : 'LightThemeClose'} fontSize={45} color="#fff" cursor={'pointer'} onClick={() => closeModal()} />
         </div>
       </div>
-    </Fragment>
 
-        <Routes>
-          <Route path='MovieInfo' element={<MovieInfo />} />
-        </Routes>
-    </>
+    </Fragment>
+  </MovieIdContainer.Provider>
   )
 }
 

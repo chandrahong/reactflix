@@ -112,11 +112,11 @@ body{
 }
 
 #Exit1{
-    cursor:pointer;
+    cursor: pointer;
     position: fixed;
-    margin-left: 1200px;
-    margin-top: 10px;
-    z-index: 999;
+    margin-left: 65%;
+    margin-top: 40px;
+    z-index: 1000;
 
 }
 
