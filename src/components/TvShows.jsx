@@ -10,7 +10,6 @@ function TvShows() {
   const {toogle, inputValue} = useContext(Container)
   const input = inputValue;
   const [trailer, setTrailer] = useState(true);
-  const [title, setTitle] = useState('')
   const [tvId, setTvId] = useState('')
   const [tvGenre, setTvGenre] = useState('')
   const [showData, setShowData] = useState([])
@@ -32,14 +31,13 @@ function TvShows() {
 
   useEffect(() => {
     setTimeout(() => {
-      TvShows()
+      TvShows();
     }, 100)
   },[input])
   
   console.log(showData)
 
   const TvShowTitle = (shows) =>{
-    setTitle(shows.name)
     setTvId(shows.id)
     setTvGenre(genre)
     setTrailer(!trailer)
@@ -62,7 +60,7 @@ function TvShows() {
         })}
         
         {trailer ? console.log : <TrailerMovies genre={tvGenre} moviesId={tvId} />}
-        <AiOutlineClose id={trailer ? 'Nothing' : 'Exit1'} className={toogle ? 'DarkTheme': 'LightThemeClose'} fontSize = {55} color="#fff" cursor={'pointer'} onClick={()=> setTrailer(true)} />
+        <AiOutlineClose id={trailer ? 'Nothing' : 'Exit1'} className={toogle ? 'DarkTheme': 'LightThemeClose'} fontSize = {35} color="#fff" cursor={'pointer'} onClick={()=> setTrailer(true)} />
         </div>
       </div>
     </Fragment>

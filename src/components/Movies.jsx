@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { Fragment, useContext, useEffect, useState } from 'react'
-import {AiFillPlayCircle, AiOutlineClose, AiFillInfoCircle } from "react-icons/ai"
+import {AiFillPlayCircle, AiOutlineClose } from "react-icons/ai"
 import {Container} from "./Navbar"
 import {Link} from 'react-router-dom'
 import NoImg from "./noimage.jpg"
@@ -76,7 +76,7 @@ const Movies = () => {
             )
           })}
           {trailer ? console.log : <TrailerMovies genre={movieGenre} moviesId={movieId} />}
-          <AiOutlineClose id={trailer ? 'Nothing' : 'Exit1'} className={toogle ? 'DarkTheme' : 'LightThemeClose'} fontSize={45} color="#fff" cursor={'pointer'} onClick={() => closeModal()} />
+          <AiOutlineClose id={trailer ? 'Nothing' : 'Exit1'} className={toogle ? 'DarkTheme' : 'LightThemeClose'} border="1px solid" fontSize={35} color="white" cursor={'pointer'} onClick={() => closeModal()} />
         </div>
       </div>
 

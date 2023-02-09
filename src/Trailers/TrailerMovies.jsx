@@ -8,9 +8,9 @@ const TrailerMovies = (genre, moviesId) => {
     const [videoUrl, setVideoUrl] = useState([])
     const [selectedMovie, setSelectedMovie] = useState([])
     const [selectedMovieGenres, setSelectedMovieGenres] = useState([])
+    const [selectedCredits, setSelectedCredits] = useState([])
     const Api = "https://api.themoviedb.org/3"
     const trailertype = genre.genre === "tv" ? "/tv/" : "/movie/"
-    console.log(trailertype)
    
     const fetchMovie = async() => {
         const data = await axios.get(`${Api}${trailertype}${genre.moviesId}`,{
@@ -22,13 +22,25 @@ const TrailerMovies = (genre, moviesId) => {
         setVideoUrl(data.data.videos)
         setSelectedMovie(data.data)
         setSelectedMovieGenres(data.data.genres)
-        return setVideoUrl, setSelectedMovie
+        return setVideoUrl, setSelectedMovie, setSelectedMovieGenres
+    }
+
+    const credits = async() => {
+        const data = await axios.get(`${Api}${trailertype}${genre.moviesId}/credits`,{
+            params: {
+                    api_key: '7481a69c10caca95f00da1e588c2ef5a'
+            }
+        })
+        setSelectedCredits(data.data.cast)
+        return setSelectedCredits
     }
 
     const renderVideoUrl = () => {
         try{
             console.log("Movie Data",selectedMovie)
-            console.log("Video url", videoUrl)
+            console.log("Credits", selectedCredits)
+    
+            
             const movietrailer = videoUrl.results.find(vid => vid.name === ('Official Trailer' ||  'official trailer' || 'Official Trailer [Subtitled]' || 
 'Official Netflix Trailer' || 'trailer'))
             console.log(movietrailer)
@@ -64,7 +76,8 @@ const TrailerMovies = (genre, moviesId) => {
 
 
     useEffect(() =>{
-        fetchMovie()
+        fetchMovie();
+        credits();
     },[])
 
     
@@ -87,7 +100,8 @@ const TrailerMovies = (genre, moviesId) => {
                     <div className="cast">
                         <h3>Release Date : {selectedMovie.release_date}</h3>
                         <h3>Rating : {selectedMovie.vote_average}</h3>
-        
+                        <h3 id="h3name">Genres :</h3>
+                        <p id="name"> {selectedMovieGenres.map((item) => {return(item.name + " ")})}</p>
                        
                     </div>
                 </div>

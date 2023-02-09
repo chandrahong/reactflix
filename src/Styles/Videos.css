@@ -114,9 +114,12 @@ body{
 #Exit1{
     cursor: pointer;
     position: fixed;
+    margin-top: 46px;
     margin-left: 65%;
-    margin-top: 40px;
+    vertical-align:middle;
     z-index: 1000;
+    border: 1px solid;
+    border-radius: 50%;
 
 }
 

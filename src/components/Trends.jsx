@@ -55,7 +55,7 @@ function Trends() {
             )
           })}
                 {trailer ? console.log : <TrailerMovies genre={trendGenre} moviesId={trendId} />}
-                <AiOutlineClose id={trailer ? 'Nothing' : 'Exit1'} className={toogle ? 'DarkTheme': 'LightThemeClose'} fontSize={55} onClick={() => setTrailer (true)}/>
+                <AiOutlineClose id={trailer ? 'Nothing' : 'Exit1'} className={toogle ? 'DarkTheme': 'LightThemeClose'} fontSize={35} onClick={() => setTrailer (true)}/>
 
         </div>
       </div>
