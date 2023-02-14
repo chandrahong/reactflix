@@ -10,9 +10,11 @@ function Login() {
   return(
     <div className="loginScreen">
         <div className="loginScreen__background">
-            <button 
+            {!signIn ? (<button
             onClick={()=> setSignIn(true)}
-            className="loginScreen__button">Sign in</button>
+            className="loginScreen__button">Sign in</button>): null}
+
+
             <div className="loginScreen__gradient">
               <h1 onClick={()=> setSignIn(false)}> Reactflix </h1>
               <div className="loginScreen__head">

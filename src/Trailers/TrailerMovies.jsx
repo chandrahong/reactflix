@@ -4,6 +4,8 @@ import '../Styles/TrailerMovie.css'
 import Youtube from 'react-youtube'
 import axios from 'axios'
 
+
+
 const TrailerMovies = (genre, moviesId) => {
     const [videoUrl, setVideoUrl] = useState([])
     const [selectedMovie, setSelectedMovie] = useState([])
@@ -12,6 +14,7 @@ const TrailerMovies = (genre, moviesId) => {
     const Api = "https://api.themoviedb.org/3"
     const trailertype = genre.genre === "tv" ? "/tv/" : "/movie/"
     const Images = "https://image.tmdb.org/t/p/w500"
+
    
     const fetchMovie = async() => {
         const data = await axios.get(`${Api}${trailertype}${genre.moviesId}`,{
@@ -45,7 +48,7 @@ const TrailerMovies = (genre, moviesId) => {
             const movietrailer = videoUrl.results.find(vid => vid.name === ('Official Trailer' ||  'official trailer' || 'Official Trailer [Subtitled]' || 
 'Official Netflix Trailer' || 'trailer'))
             console.log(movietrailer)
-            const movietrailer2 = movietrailer.key
+            const movietrailer2 = movietrailer !== undefined ? movietrailer.key : "lXnjds5qabY"
             
             const opts = {
                 height: '600',
@@ -64,13 +67,10 @@ const TrailerMovies = (genre, moviesId) => {
         }
     }
 
-
     useEffect(() =>{
         fetchMovie();
         credits();
     },[])
-
-    
   return (
     <Fragment>
         <div className="modalBackground">

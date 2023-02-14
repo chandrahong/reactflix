@@ -1,4 +1,4 @@
-import React, { useRef} from 'react'
+import React, { useRef , useEffect} from 'react'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from  "firebase/auth";
 import { auth }  from '../firebase'
 import "../Styles/SignUpScreen.css"
@@ -35,11 +35,16 @@ const SignUp = (email) => {
         alert(error.message);
       });
   }
+
+    useEffect(()=>{
+      emailRef.current.value = email.email;
+    },[]);
+
   return (
       <div className="signupScreen">
         <form>
           <h1><span>Sign In</span></h1>
-          <input value={email ? email.email : null} ref={emailRef} placeholder="email" type="email" />
+          <input ref={emailRef} placeholder="email" type="email" />
           <input ref={passwordRef} placeholder="password" type="password"/> 
           <button type="submit" onClick={signIn}>Sign In</button>
 

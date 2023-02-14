@@ -5,7 +5,6 @@ import {Container} from "./Navbar"
 import {Link} from 'react-router-dom'
 import NoImg from "./noimage.jpg"
 import '../Styles/Videos.css'
-import Navbar from "./Navbar";
 import TrailerMovies from '../Trailers/TrailerMovies'
 
 
@@ -59,7 +58,7 @@ const Movies = () => {
 
   return (
       <Fragment>
-      <div className={toogle ? "mainBgColor" : "secondaryBgColor"}>
+      <div className={toogle ? "mainBgColor" : "secondaryBgColor"} >
         <div className="movies-container">
           {moviesData.map((movie) => {
             return (
