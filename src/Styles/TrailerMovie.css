@@ -18,14 +18,14 @@
 }
 
 .modalContainer{
-    margin-top: 45px;
+    margin-top: 25px;
     top: 0;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: flex-start;
     z-index: 1000;
-    height: 700px;
+    height: 1350px;
     width: 1200px;
     background-color: rgb(29, 28, 28);
     color: white;
@@ -33,6 +33,7 @@
     border-radius: 20px;
     flex-direction: column;
     position: absolute; 
+    overflow-x: hidden;
 }
 
 #youtubeplayer{
@@ -48,20 +49,29 @@
 .movie-info{
     display:flex;
     flex-direction: row;
-    height:200px;
+    padding-top: 20px;
+    height:150px;
     width: 1200px;
 }
 
 .title{
     width: 600px;
     margin-left: 20px;
+    padding-bottom: 20px;
+}
+
+.title > h3 , .title > p {
+    margin-bottom: 10px;
+}
+
+.title > p{
+    margin-left: 5px;
 }
 
 .cast{
-    margin-left: 80px;
     width: 500px;
     text-align: left;
-
+    margin-left: 80px;
 }
 
 #h3name{
@@ -71,5 +81,49 @@
 #name{
     display: inline;
     font-size: 19px;
+}
+
+.poster{
+    display:flex;
+    flex-direction: column;
+    width: 1200px;
+    height: 550px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    position: relative;
+
+}
+
+.poster::-webkit-scrollbar{
+    display:none;
+}
+
+.poster-img{
+    display:flex;
+    flex-direction: row;
+}
+
+.credits > h3{
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+#credits-img{
+    display: flex;
+    flex-direction: row;
+    object-fit: cover;
+    height: 400px;
+    width: 300px;
+}
+
+#credits-name{
+    text-align:center;
+    color: rgb(170, 140, 140);
+
+}
+
+#credits-character{
+    text-align:center;
+    color: white;
 }
 

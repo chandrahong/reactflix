@@ -5,9 +5,9 @@ import {Container} from "./Navbar"
 import {Link} from 'react-router-dom'
 import NoImg from "./noimage.jpg"
 import '../Styles/Videos.css'
+import Navbar from "./Navbar";
 import TrailerMovies from '../Trailers/TrailerMovies'
 
-export const MovieIdContainer = React.createContext()
 
 const Movies = () => {
 
@@ -54,9 +54,10 @@ const Movies = () => {
     setTrailer(true)
     document.body.style.overflow = 'unset';
   }
+  
+
 
   return (
-    <MovieIdContainer.Provider value={{movieGenre,movieId}}>
       <Fragment>
       <div className={toogle ? "mainBgColor" : "secondaryBgColor"}>
         <div className="movies-container">
@@ -69,8 +70,10 @@ const Movies = () => {
                    
                   </Link>
                   
-                  <img src={movie.poster_path ? `${Images}${movie.poster_path}` : NoImg} alt="" onClick={() => MoviesTitle(movie)} />
+                <img src={movie.poster_path ? `${Images}${movie.poster_path}` : NoImg} alt="" onClick={() => MoviesTitle(movie)}  />
                   <h3 id="smaller-Text" className={toogle ? 'mainColor' : 'secondaryColor'}>{movie.title}</h3>
+
+
                 </div>
               </Fragment>
             )
@@ -81,7 +84,6 @@ const Movies = () => {
       </div>
 
     </Fragment>
-  </MovieIdContainer.Provider>
   )
 }
 

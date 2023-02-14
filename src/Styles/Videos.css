@@ -21,15 +21,16 @@ body{
 .movies-container img{
     object-fit: cover;
     width: 350px;
-    height: 550px;
+    height: 520px;
     margin: 25px 0px 4px 15px;
     border-radius: 20px;
 }
 
-.movies-container h3, .movies-container img{
+.movies-container img{
     cursor: pointer;
     transition: .7s;
 }
+
 
 .movies-container img:hover{
     transform: scale(1.05);
@@ -62,7 +63,7 @@ body{
 
 #playIcon{
     position: absolute;
-    bottom: 60px;
+    bottom: 35px;
     left:20px;
     visibility: visible;
     z-index: 100;
@@ -91,6 +92,7 @@ body{
 
 
 #smaller-Text{
+    margin-top: 10px;
     display: flex;
     width: 100%;
     font-size:12px;
@@ -114,7 +116,7 @@ body{
 #Exit1{
     cursor: pointer;
     position: fixed;
-    margin-top: 46px;
+    margin-top: 25px;
     margin-left: 65%;
     vertical-align:middle;
     z-index: 1000;

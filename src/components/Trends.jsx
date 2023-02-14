@@ -40,7 +40,14 @@ function Trends() {
     setTrendId(trend.id)
     settrendGenre(trend.media_type)
     setTrailer(!trailer)
+    document.body.style.overflow = 'hidden'
   }
+
+  function closeModal(){
+    setTrailer(true)
+    document.body.style.overflow = 'unset'
+  }
+
   return (
     <Fragment>
       <div className={toogle ? "mainBgColor" : "secondaryBgColor"}>
@@ -55,7 +62,7 @@ function Trends() {
             )
           })}
                 {trailer ? console.log : <TrailerMovies genre={trendGenre} moviesId={trendId} />}
-                <AiOutlineClose id={trailer ? 'Nothing' : 'Exit1'} className={toogle ? 'DarkTheme': 'LightThemeClose'} fontSize={35} onClick={() => setTrailer (true)}/>
+                <AiOutlineClose id={trailer ? 'Nothing' : 'Exit1'} className={toogle ? 'DarkTheme': 'LightThemeClose'} fontSize={35} onClick={() => closeModal()} />
 
         </div>
       </div>

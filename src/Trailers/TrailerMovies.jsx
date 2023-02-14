@@ -11,6 +11,7 @@ const TrailerMovies = (genre, moviesId) => {
     const [selectedCredits, setSelectedCredits] = useState([])
     const Api = "https://api.themoviedb.org/3"
     const trailertype = genre.genre === "tv" ? "/tv/" : "/movie/"
+    const Images = "https://image.tmdb.org/t/p/w500"
    
     const fetchMovie = async() => {
         const data = await axios.get(`${Api}${trailertype}${genre.moviesId}`,{
@@ -39,7 +40,7 @@ const TrailerMovies = (genre, moviesId) => {
         try{
             console.log("Movie Data",selectedMovie)
             console.log("Credits", selectedCredits)
-    
+            console.log("videos", videoUrl)
             
             const movietrailer = videoUrl.results.find(vid => vid.name === ('Official Trailer' ||  'official trailer' || 'Official Trailer [Subtitled]' || 
 'Official Netflix Trailer' || 'trailer'))
@@ -59,18 +60,7 @@ const TrailerMovies = (genre, moviesId) => {
                 videoId={movietrailer2} opts={opts} id="youtubeplayer"
             />
         } catch (error){
-
-            const opts = {
-                height: '500',
-                width: '1200',
-                playerVars: {
-                  // https://developers.google.com/youtube/player_parameters
-                  autoplay: 1,
-                },
-              };
-
-            <Youtube opts={opts} id="youtubeplayer"
-            />
+           console.log(error)
         }
     }
 
@@ -103,6 +93,26 @@ const TrailerMovies = (genre, moviesId) => {
                         <h3 id="h3name">Genres :</h3>
                         <p id="name"> {selectedMovieGenres.map((item) => {return(item.name + " ")})}</p>
                        
+                    </div>
+                </div>
+
+                <div className="credits"> 
+                        <h3> Cast  </h3>
+                    <div className="poster">
+                        <div className="poster-img">
+                                {selectedCredits.map((img) => {
+                                    return (
+                                        <Fragment>
+                                            <div className="container">
+                                                {img.profile_path? <img id="credits-img" src={`${Images}${img.profile_path}`} /> : null}
+                                                {img.profile_path? <h5 id="credits-character">{img.character}</h5> : null}
+                                                {img.profile_path? <h5 id="credits-name">{img.name}</h5> : null}
+                                            </div>
+                                        </Fragment>
+                                    )
+                                }
+                                )}
+                        </div>
                     </div>
                 </div>
 
