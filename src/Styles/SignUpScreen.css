@@ -55,3 +55,28 @@
     cursor:pointer;
     text-decoration: underline;
 }
+
+@media screen and (max-width : 960px){
+    .signupScreen > form > h1{
+        font-size: 20px;
+        margin-bottom: 0px;
+        padding-top: 0px;
+    }
+    .signupScreen > form > h4{
+        font-size: 14px;
+    }
+
+    .signupScreen > form > input{
+        height: 16px;
+        margin-bottom: 10px;
+    }
+
+    .signupScreen > form > button{
+        margin-top: 0px;
+        height: 17px;
+        font-size: 14px;
+        padding-top: 10px;
+        padding-bottom: 25px;
+    }
+
+}

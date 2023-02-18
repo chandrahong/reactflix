@@ -128,3 +128,18 @@ body{
 #Nothing{
     color: green;
 }
+
+@media screen and (max-height : 960px) {
+
+    .movies-container img{
+        width: 320px;
+        height: 500px;
+        margin-left: 0px;
+    }
+
+    #Exit1{
+        margin-top: 30px;
+        margin-left: 75%;
+    }
+    
+}

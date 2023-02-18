@@ -127,3 +127,54 @@
     color: white;
 }
 
+@media screen and (max-width: 960px){
+    .modalContainer{
+        width: 350px;
+    }
+
+    #youtubeplayer{
+        width:100%;
+        height: 250px;
+    }
+    
+    .player{
+        height: 250px;
+        z-index:2;
+    }
+
+    .movie-info{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width:100%;
+        height: 400px;
+    }
+    
+    .title{
+        width: 90%;
+        margin-left: 5px;
+    }
+
+    .title >p{
+        width: 100%;
+        margin-left: 0px;
+        text-align: justify;
+   
+    }
+
+    .cast{
+        width: 90%;
+        text-align: left;
+        margin-left: 5px;
+        font-size: 0.85rem;
+    }
+
+    #name{
+        font-size: 15px;
+    }
+
+    .credits{
+        font-size: 0.85rem;
+    }
+
+}

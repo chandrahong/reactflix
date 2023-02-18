@@ -110,3 +110,48 @@ h1{
     font-weight: 600;
     cursor: pointer;
 }
+
+@media screen and (max-width: 960px) {
+    .loginScreen__body > h1{
+        font-size: 1.5rem;
+    }
+    
+    .loginScreen__body > h2{
+        font-size: 0.9rem;
+    }
+
+    .loginScreen__body > h3{
+        font-size: 0.8rem;
+    }
+
+    .loginScreen__input > form{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .loginScreen__input > form > input{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 10px;
+    }
+    
+    .loginScreen__getStarted{
+        margin-top: 5px;
+        width: 335px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius : 10px;
+    }
+
+    .loginScreen__button{
+        border-radius: 10px;
+    }
+
+    .database > h2{
+        font-size: 1.3rem;
+    }
+    .database > h3{
+        font-size: 1rem;
+    }
+}

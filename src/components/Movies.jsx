@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { Fragment, useContext, useEffect, useState } from 'react'
 import {AiFillPlayCircle, AiOutlineClose } from "react-icons/ai"
+import {HiBars4} from "react-icons"
 import {Container} from "./Navbar"
 import {Link} from 'react-router-dom'
 import NoImg from "./noimage.jpg"
